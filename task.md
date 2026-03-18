@@ -21,11 +21,11 @@
 
 ## Phase 2: 회원 인증 시스템 (Membership System)
 
-- [ ] **T-2.1 회원가입 기능 및 화면 구현**
-  - [ ] `frontend-design` 스킬을 활용한 회원가입 폼 (`join-form.mustache`) 구현
-  - [ ] `UserRequest.JoinDTO` 구현 및 유효성 검사 적용
-  - [ ] 아이디 중복 체크 API 구현 및 서비스 로직 작성
-  - [ ] 비밀번호 암호화 저장 처리 (BCrypt 적용 권장)
+- [x] **T-2.1 회원가입 기능 및 화면 구현**
+  - [x] `frontend-design` 스킬을 활용한 회원가입 폼 (`join-form.mustache`) 구현
+  - [x] `UserRequest.JoinDTO` 구현 및 유효성 검사 적용
+  - [x] 아이디 중복 체크 API 구현 및 서비스 로직 작성
+  - [x] 비밀번호 암호화 저장 처리 (BCrypt 적용 권장)
 - [ ] **T-2.2 로그인/로그아웃 기능 및 화면 구현**
   - [ ] `frontend-design` 스킬을 활용한 로그인 폼 (`login-form.mustache`) 구현
   - [ ] `UserRequest.LoginDTO` 구현

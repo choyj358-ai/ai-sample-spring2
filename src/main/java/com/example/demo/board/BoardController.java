@@ -14,7 +14,7 @@ public class BoardController {
     private final HttpSession session;
 
     @GetMapping("/home")
-    public String home(){
-        return "home"; 
+    public String home() {
+        return "home";
     }
 }

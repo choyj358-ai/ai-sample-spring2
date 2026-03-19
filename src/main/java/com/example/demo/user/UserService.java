@@ -17,6 +17,18 @@ public class UserService {
     }
 
     @Transactional
+    public User login(UserRequest.Login loginRequest) {
+        User user = userRepository.findByUsername(loginRequest.getUsername())
+                .orElseThrow(() -> new RuntimeException("아이디 또는 비밀번호가 올바르지 않습니다"));
+
+        if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
+            throw new RuntimeException("아이디 또는 비밀번호가 올바르지 않습니다");
+        }
+
+        return user;
+    }
+
+    @Transactional
     public void join(UserRequest.JoinDTO joinDTO) {
         // 아이디 중복 체크 (보안 및 데이터 정합성)
         userRepository.findByUsername(joinDTO.getUsername()).ifPresent(user -> {

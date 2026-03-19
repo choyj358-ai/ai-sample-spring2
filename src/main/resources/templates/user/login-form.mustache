@@ -1,5 +1,51 @@
 {{> layout/header}}
 
-<h1>로그인 페이지</h1>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow border-0 rounded-4">
+                <div class="card-header bg-primary text-white py-3 border-0 rounded-top-4">
+                    <h4 class="mb-0 text-center fw-bold"><i class="fas fa-sign-in-alt me-2"></i>로그인</h4>
+                </div>
+                <div class="card-body p-5">
+                    <form action="/login" method="post">
+                        <div class="mb-4">
+                            <label for="username" class="form-label fw-semibold text-secondary">아이디</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fas fa-user"></i></span>
+                                <input type="text" id="username" name="username" class="form-control bg-light border-start-0 ps-0" placeholder="아이디를 입력하세요" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-semibold text-secondary">비밀번호</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-muted"><i class="fas fa-lock"></i></span>
+                                <input type="password" id="password" name="password" class="form-control bg-light border-start-0 ps-0" placeholder="비밀번호를 입력하세요" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-3 mt-2 fw-bold shadow-sm rounded-pill">
+                            로그인하기
+                        </button>
+                        
+                        <hr class="my-4 text-muted opacity-25">
+                        
+                        <div class="text-center">
+                            <span class="text-muted small">아직 회원이 아니신가요?</span>
+                            <a href="/join-form" class="fw-bold text-primary text-decoration-none ms-2 small">
+                                회원가입 <i class="fas fa-chevron-right ms-1"></i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="/" class="text-muted text-decoration-none small">
+                    <i class="fas fa-home me-1"></i> 메인으로 돌아가기
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {{> layout/footer}}

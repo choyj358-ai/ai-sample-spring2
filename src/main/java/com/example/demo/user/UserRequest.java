@@ -24,7 +24,12 @@ public class UserRequest {
 
     @Data
     public static class Login {
+        @NotBlank(message = "유저네임은 필수입니다")
+        @Size(min = 4, max = 20, message = "유저네임은 4~20자 이내여야 합니다")
         private String username;
+
+        @NotBlank(message = "비밀번호는 필수입니다")
+        @Size(min = 4, max = 20, message = "비밀번호는 4~20자 이내여야 합니다")
         private String password;
     }
 

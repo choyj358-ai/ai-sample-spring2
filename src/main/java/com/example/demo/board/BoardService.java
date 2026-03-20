@@ -17,9 +17,11 @@ import lombok.RequiredArgsConstructor;
 public class BoardService {
     private final BoardRepository boardRepository;
 
-    public List<BoardResponse.ListDTO> 게시글목록보기() {
-        // N+1 문제를 방지하기 위해 JOIN FETCH를 사용한 쿼리 호출
-        List<Board> boardList = boardRepository.findFetchAll();
+    public List<BoardResponse.ListDTO> 게시글목록보기(int page) {
+        int limit = 3; // 한 페이지에 보여줄 갯수
+        int offset = page * limit; // 시작 인덱스
+        // Native Query를 사용하여 LIMIT/OFFSET 기반 페이징 구현
+        List<Board> boardList = boardRepository.findNativeAll(limit, offset);
         return boardList.stream()
                 .map(BoardResponse.ListDTO::new)
                 .collect(Collectors.toList());

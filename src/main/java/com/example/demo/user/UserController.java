@@ -24,6 +24,39 @@ public class UserController {
         return "user/login-form";
     }
 
+    @GetMapping("/user/update-form")
+    public String updateForm(org.springframework.ui.Model model) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/login-form";
+        }
+        User user = userService.회원정보보기(sessionUser.getId());
+        model.addAttribute("user", user);
+        return "user/update-form";
+    }
+
+    @PostMapping("/user/update")
+    public String update(@jakarta.validation.Valid UserRequest.UpdateDTO updateDTO, org.springframework.validation.Errors errors) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/login-form";
+        }
+        User user = userService.회원수정(sessionUser.getId(), updateDTO);
+        session.setAttribute("sessionUser", user);
+        return "redirect:/";
+    }
+
+    @PostMapping("/user/withdraw")
+    public String withdraw() {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        if (sessionUser == null) {
+            return "redirect:/login-form";
+        }
+        userService.회원탈퇴(sessionUser.getId());
+        session.invalidate();
+        return "redirect:/";
+    }
+
     @PostMapping("/login")
     public String login(@jakarta.validation.Valid UserRequest.Login loginRequest, org.springframework.validation.Errors errors) {
         User sessionUser = userService.login(loginRequest);

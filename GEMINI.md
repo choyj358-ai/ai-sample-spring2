@@ -5,6 +5,9 @@
 http 메서드 : get, post만 사용하여 구현한다. \*ApiController는 ajax가 필요할 때만 사용한다.
 http 요청방법 : form 태그 사용. x-www-form-urlencoded
 \*Service.java의 메서드명은 반드시 한글로 한다.
+model에 데이터를 담을 때 규칙(a, b 참고)
+A : model.addAttribute("model", 오브젝트);
+B : model.addAttribute("models", 컬렉션);
 
 ---
 
